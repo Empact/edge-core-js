@@ -599,7 +599,7 @@ export type EdgeCurrencyInfo = {
 
 export type EdgeParsedUri = {
   token?: EdgeTokenInfo,
-  privateKey?: string,
+  privateKeys?: Array<string>,
   publicAddress?: string,
   legacyAddress?: string,
   segwitAddress?: string,
@@ -689,6 +689,7 @@ export type EdgeCurrencyEngine = {
   addGapLimitAddresses(addresses: Array<string>, options: any): void,
   isAddressUsed(address: string, options: any): boolean,
   makeSpend(abcSpendInfo: EdgeSpendInfo): Promise<EdgeTransaction>,
+  sweepPrivateKeys(abcSpendInfo: EdgeSpendInfo): Promise<EdgeTransaction>,
   signTx(abcTransaction: EdgeTransaction): Promise<EdgeTransaction>,
   broadcastTx(abcTransaction: EdgeTransaction): Promise<EdgeTransaction>,
   saveTx(abcTransaction: EdgeTransaction): Promise<void>,

@@ -214,6 +214,10 @@ export function makeCurrencyWalletApi (
       return engine.makeSpend(spendInfo)
     },
 
+    async sweepPrivateKeys (spendInfo: EdgeSpendInfo): Promise<EdgeTransaction> {
+      return engine.sweepPrivateKeys(spendInfo)
+    },
+
     async getQuote (spendInfo: EdgeSpendInfo): Promise<EdgeCoinExchangeQuote> {
       const destWallet = spendInfo.spendTargets[0].destWallet
       if (!destWallet) {
